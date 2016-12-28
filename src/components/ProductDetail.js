@@ -5,9 +5,11 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 const ProductDetail = ({ product }) => {
   console.log(product);
@@ -50,6 +52,12 @@ const ProductDetail = ({ product }) => {
           <Text style={headerText}>{ price }</Text>
           <Text>{ description }</Text>
         </View>
+      </CardSection>
+
+      <CardSection>
+        <Button onPress={() => Actions.product()}>
+          More info
+        </Button>
       </CardSection>
     </Card>
   );

@@ -21,7 +21,7 @@ const styles = {
   },
 
   viewStyle: {
-    backgroundColor: 'ghostwhite',
+    backgroundColor: '#FAFAFA',
     borderBottomWidth: 0,
     height: 65,
     shadowColor: 'black',

@@ -3,7 +3,6 @@ import {
   View,
 } from 'react-native';
 
-import Header from './components/Header';
 import Router from './Router';
 
 

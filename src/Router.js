@@ -1,7 +1,9 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import ProductsList from './components/ProductsList';
+import CategoryProducts from './components/CategoryProducts';
 import Product from './components/Product';
+import Home from './components/Home';
 
 const RouterComponent = () => (
   <Router
@@ -9,15 +11,18 @@ const RouterComponent = () => (
     navigationBarStyle={styles.viewStyle}
     titleStyle={styles.textStyle}
   >
-    <Scene key="list" component={ProductsList} title="Products 🎶" initial />
-    <Scene key="product" component={Product} title="Product"  />
+    <Scene key="home" component={Home} title="Home" initial />
+    <Scene key="products" component={ProductsList} title="Products 🎶" />
+    <Scene key="product" component={Product} title="Producto"  />
+    <Scene key="categoryProducts" component={CategoryProducts} title="Categoría"  />
   </Router>
 );
 
 const styles = {
   textStyle: {
     fontSize: 20,
-    color: '#262626'
+    color: '#262626',
+    fontWeight: 'bold',
   },
 
   viewStyle: {

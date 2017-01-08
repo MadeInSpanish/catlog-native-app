@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import {
-  ScrollView,
+  View,
+  Text,
+  Image
 } from 'react-native';
 import ProductDetail from './ProductDetail';
 
-class ProductsList extends Component {
+class Product extends Component {
   constructor() {
     super();
     this.state = {
-      products: [],
+      product: [],
     };
   }
 
   componentWillMount() {
-    fetch('http://localhost:3000/v1/products/')
+    fetch(`http://localhost:3000/v1/products/${this.props.id}`)
       .then(
         response => {
           if (response.status !== 200) {
@@ -23,24 +25,25 @@ class ProductsList extends Component {
           // Examine the text in the response
           response
           .json()
-          .then(res => this.setState({ products: res.data }));
+          .then(res => this.setState({ product: res.data.attributes }));
         }
       )
       .catch(err => console.log('Fetch Error :-S', err));
   }
 
-  renderProducts() {
-    return this.state.products
-      .map(product => <ProductDetail key={product.id} product={product} />);
-  }
-
   render() {
+    console.log(this.state.product);
+    const { name, price,image } = this.state.product
     return (
-      <ScrollView>
-        { this.renderProducts() }
-      </ScrollView>
+      <View>
+        <Text>{name}</Text>
+        <Text>{price}</Text>
+        <Text>{this.state.product.quantity}</Text>
+        <Text>{this.state.product.description}</Text>
+        <Image source={{ uri: image }}/>
+      </View>
     );
   }
 }
 
-export default ProductsList;
+export default Product;

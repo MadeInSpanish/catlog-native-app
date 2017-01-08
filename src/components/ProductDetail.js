@@ -12,7 +12,6 @@ import Card from './Card';
 import CardSection from './CardSection';
 
 const ProductDetail = ({ product }) => {
-  console.log(product);
   const {
     image,
     name,
@@ -20,15 +19,19 @@ const ProductDetail = ({ product }) => {
     storeImage,
     price,
     description,
-  } = product;
+  } = product.attributes;
+
+  const { id } = product;
 
   const {
     thumbnailStyle,
     thumbnailContainer,
     headerContent,
     headerText,
-    songImage,
+    productImage,
   } = styles;
+
+  const goToProduct= () => Actions.product({ id });
 
   return (
     <Card>
@@ -41,25 +44,16 @@ const ProductDetail = ({ product }) => {
         </View>
         <View style={headerContent}>
           <Text style={headerText}>{ name }</Text>
-          <Text>{ storeName }</Text>
+          <Text>{ price }</Text>
         </View>
       </CardSection>
       <CardSection>
-        <Image source={{ uri: image }} style={songImage} />
+        <Image source={{ uri: image }} style={productImage} />
       </CardSection>
-      <CardSection>
-        <View style={headerContent}>
-          <Text style={headerText}>{ price }</Text>
-          <Text>{ description }</Text>
-        </View>
-      </CardSection>
-
-      <CardSection>
-        <Button
-          onPress={() => Actions.product()}
-          title="More info"
-        />
-      </CardSection>
+      <Button
+        onPress={goToProduct}
+        title="Más Información"
+      />
     </Card>
   );
 };
@@ -83,7 +77,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
-  songImage: {
+  productImage: {
     height: 300,
     width: null,
     flex: 1,

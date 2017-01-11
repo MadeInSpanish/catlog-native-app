@@ -34,7 +34,7 @@ const CategoryDetail = ({ category }) => {
       <View style={headerContent}>
         <Image
           style={headerImage}
-          source={require(`../images/categories/bolsos.png`)}
+          source={require(`../images/bolsos.png`)}
         />
         <Text>{name}</Text>
       </View>

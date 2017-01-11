@@ -13,7 +13,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    fetch('http://localhost:3000/v1/categories/')
+    fetch('https://catlog-api.herokuapp.com/v1/categories/')
       .then(
         response => {
           if (response.status !== 200) {

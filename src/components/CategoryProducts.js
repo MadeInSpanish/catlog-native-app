@@ -13,7 +13,7 @@ class CategoryProducts extends Component {
   }
 
   componentWillMount() {
-    fetch(`http://localhost:3000/v1/categories/${this.props.id}/products`)
+    fetch(`https://catlog-api.herokuapp.com/v1/categories/${this.props.id}/products`)
       .then(
         response => {
           if (response.status !== 200) {

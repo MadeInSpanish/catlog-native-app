@@ -13,7 +13,7 @@ class ProductsList extends Component {
   }
 
   componentWillMount() {
-    fetch('http://localhost:3000/v1/products/')
+    fetch('https://catlog-api.herokuapp.com/v1/products/')
       .then(
         response => {
           if (response.status !== 200) {

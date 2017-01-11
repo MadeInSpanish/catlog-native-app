@@ -15,7 +15,7 @@ class Product extends Component {
   }
 
   componentWillMount() {
-    fetch(`http://localhost:3000/v1/products/${this.props.id}`)
+    fetch(`https://catlog-api.herokuapp.com/v1/products/${this.props.id}`)
       .then(
         response => {
           if (response.status !== 200) {
